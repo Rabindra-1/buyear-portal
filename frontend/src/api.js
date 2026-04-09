@@ -45,9 +45,17 @@
 //   return res.json();
 // }
 
-
 // Use the environment variable from Vercel, fallback to localhost for dev
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+export const register = async (userData) => {
+  const res = await fetch(`${API_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  });
+  return res.json();
+};
 
 export const login = async (credentials) => {
   const res = await fetch(`${API_URL}/auth/login`, {
@@ -79,7 +87,7 @@ export const addFavourite = async (token, propertyName) => {
 
 export const removeFavourite = async (token, propertyName) => {
   const res = await fetch(`${API_URL}/favourites/remove`, {
-    method: "POST", // or DELETE depending on your route
+    method: "POST",
     headers: { 
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}` 
