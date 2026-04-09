@@ -30,6 +30,7 @@ buyear-portal/
     │   ├── api.js      # Centralized API service with Env support
     │   └── pages/      # Dashboard, Login, Register components
     └── public/         # Static assets
+```
 
 ## 🛠️ Local Development Run Guide
 
